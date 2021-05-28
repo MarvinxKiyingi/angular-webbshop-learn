@@ -1,5 +1,11 @@
 <div class="shopping-cart">
+  <button>Remove</button>
   <p>{{ cartItem.name }}</p>
   <img [src]="cartItem.imageUrl" alt="Movie Poster" />
-  <h3>{{ cartItem.price }}Kr</h3>
+  <h3>{{ cartItem.price }} Kr</h3>
+  <div>
+    <button>Minus</button>
+    <input type="text" />
+    <button>Plus</button>
+  </div>
 </div>
