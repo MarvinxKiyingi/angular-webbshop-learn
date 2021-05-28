@@ -1,0 +1,8 @@
+.shopping-cart {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  .poster {
+    max-width: 100%;
+  }
+}

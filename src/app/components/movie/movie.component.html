@@ -1,0 +1,7 @@
+<div class="movie-container">
+  <p>
+    {{ movieItem.name }}
+  </p>
+  <img class="poster" [src]="movieItem.imageUrl" alt="Movie img" />
+  <button (click)="handleClick()">Add to cart</button>
+</div>
