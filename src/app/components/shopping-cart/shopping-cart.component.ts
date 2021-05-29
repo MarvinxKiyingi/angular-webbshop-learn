@@ -8,15 +8,16 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./shopping-cart.component.scss'],
 })
 export class ShoppingCartComponent implements OnInit {
-  allCartItems: Movie[] = [];
+  cartItems: Movie[] = [];
 
-  constructor(private cartItems: CartService) {}
+  constructor(private allCartItems: CartService) {}
 
   ngOnInit(): void {
-    this.cartItems.carts$.subscribe((data) => {
-      this.allCartItems = data;
+    // här tar jag emot listan på alla valda film object i form av en lista. Som jag sedan ger dess värde till min tomma lista här ovan movies
+    this.allCartItems.carts$.subscribe((data) => {
+      this.cartItems = data;
     });
-    this.cartItems.getCart();
-    console.log(this.allCartItems);
+    this.allCartItems.getCart();
+    console.log(this.cartItems);
   }
 }

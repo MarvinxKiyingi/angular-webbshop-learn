@@ -1,6 +1,7 @@
 .movies-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   .movie-wrapper {
     display: flex;
     width: 30%;

@@ -1,11 +1,12 @@
 .movie-container {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between;
   .poster {
     max-width: 100%;
   }
   button {
     cursor: pointer;
+    background-color: chartreuse;
   }
 }

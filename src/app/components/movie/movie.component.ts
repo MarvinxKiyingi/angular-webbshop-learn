@@ -9,13 +9,14 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class MovieComponent implements OnInit {
   @Input() movieItem: Movie;
-  // @Output() selectedMovie = new EventEmitter<Movie>();
+  @Output() selectedMovie = new EventEmitter<Movie>();
 
-  constructor(private cartService: CartService) {}
+  // constructor(private cartService: CartService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   handleClick(): void {
-    this.cartService.addToCart(this.movieItem);
+    this.selectedMovie.emit(this.movieItem);
   }
 }
