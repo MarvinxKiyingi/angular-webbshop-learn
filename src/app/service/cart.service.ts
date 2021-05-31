@@ -15,14 +15,6 @@ export class CartService {
 
   constructor() {}
   //Tar emot film objectet jag har tryckt på från min handleClick
-  // addToCart(aMovie: Movie): void {
-  //   // Pushar den filmen till min tomma lista oven
-  //   this.cart.push(aMovie);
-  //   //sparar den listan i sessionStorage
-  //   sessionStorage.setItem('Cart', JSON.stringify(this.cart));
-  //   //kör igång min nästa funcktion
-  //   this.getCart();
-  // }
   getSelectedMovie(theSelectedMovie: Movie): void {
     // Pushar den filmen till min tomma lista oven
     this.cart.push(theSelectedMovie);
