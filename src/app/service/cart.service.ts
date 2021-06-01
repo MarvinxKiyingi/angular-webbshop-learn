@@ -46,15 +46,13 @@ export class CartService {
 
   removeCartItem(rMovie: Movie): void {
     let cartItems: Movie[] = JSON.parse(sessionStorage.getItem('Cart'));
-    console.log(cartItems);
     for (let position = 0; position < cartItems.length; position++) {
       if (cartItems[position].id === rMovie.id) {
         cartItems.splice(position, 1);
-        sessionStorage.setItem('Cart', JSON.stringify(this.cart));
-        console.log(cartItems);
+        sessionStorage.setItem('Cart', JSON.stringify(cartItems));
+        this.carts.next(cartItems);
       }
     }
-    console.log('i have been reomved ');
   }
 
   // getTotalAmount(): number {

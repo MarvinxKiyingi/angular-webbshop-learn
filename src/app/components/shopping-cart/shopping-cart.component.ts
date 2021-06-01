@@ -21,6 +21,5 @@ export class ShoppingCartComponent implements OnInit {
     this.totalCartItems.getCartItems();
     // this.totalCartItems.getTotalAmount();
     this.totalAmount = this.totalCartItems.getTotalAmount();
-    console.log(this.totalAmount);
   }
 }
