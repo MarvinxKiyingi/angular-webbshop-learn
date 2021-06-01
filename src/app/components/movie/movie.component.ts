@@ -20,6 +20,6 @@ export class MovieComponent implements OnInit {
   //   this.selectedMovie.emit(this.movieItem);
   // }
   handleClick(): void {
-    this.cartService.getSelectedMovie(this.movieItem);
+    this.cartService.addToCart(this.movieItem);
   }
 }

@@ -1,6 +1,17 @@
 <div *ngIf="cartItems.length === 0" class="emptyCart">
   <h1>Your cart is empty!</h1>
 </div>
-<div *ngIf="cartItems.length > 0" class="shopping-cart-wrapper">
-  <app-cart *ngFor="let cItem of cartItems" [cartItem]="cItem"></app-cart>
+
+<div *ngIf="cartItems.length > 0" class="shoppingCart-wrapper">
+  <div class="cartItems-container">
+    <app-cart *ngFor="let cItem of cartItems" [cartItem]="cItem"></app-cart>
+  </div>
+  <div class="checkout">
+    <h3>Order summary</h3>
+    <p>
+      Total:
+      {{ totalAmount }} kr
+    </p>
+    <button>Checkout</button>
+  </div>
 </div>

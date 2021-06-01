@@ -32,6 +32,6 @@ export class MoviesComponent implements OnInit {
     this.selectedMovie = aMovie;
     console.log('sending this: ', this.selectedMovie);
     // Här ger jag min cartService function värdet jag skickade från handleSelectedMovie function till selectedMovie variabeln.
-    this.cartService.getSelectedMovie(this.selectedMovie);
+    this.cartService.addToCart(this.selectedMovie);
   }
 }
