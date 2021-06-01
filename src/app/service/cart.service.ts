@@ -27,24 +27,34 @@ export class CartService {
     } else {
       // Pushar den filmen till min tomma lista oven
       this.cart.push(theSelectedMovie);
+      console.log(this.cart);
       //sparar den listan i sessionStorage
       sessionStorage.setItem('Cart', JSON.stringify(this.cart));
     }
   }
 
   getCartItems(): void {
-    // om det inte finns någon lista i sessionStorage, visa den tomma listan ovan (för att hindra detta fel medelandet: Cannot read property 'length' of null)
+    // om det inte finns någon lista i sessionStorage, spara den tomma listan ovan för att undvika detta felmedelandet:Cannot read property 'length' of null.
     if (!sessionStorage.getItem('Cart')) {
-      this.carts.next(this.cart);
+      sessionStorage.setItem('Cart', JSON.stringify(this.cart));
       // Annars hämtar jag min lista från sessionStorage
     } else {
       this.carts.next(JSON.parse(sessionStorage.getItem('Cart')));
+      this.cart = JSON.parse(sessionStorage.getItem('Cart'));
     }
   }
 
-  removeCartItem(): void {
-    let cartItems = JSON.parse(sessionStorage.getItem('Cart'));
-    console.log('hello');
+  removeCartItem(rMovie: Movie): void {
+    let cartItems: Movie[] = JSON.parse(sessionStorage.getItem('Cart'));
+    console.log(cartItems);
+    for (let position = 0; position < cartItems.length; position++) {
+      if (cartItems[position].id === rMovie.id) {
+        cartItems.splice(position, 1);
+        sessionStorage.setItem('Cart', JSON.stringify(this.cart));
+        console.log(cartItems);
+      }
+    }
+    console.log('i have been reomved ');
   }
 
   // getTotalAmount(): number {
