@@ -1,11 +1,17 @@
-<div class="shopping-cart">
-  <button (click)="handelRemoveItem()">Remove</button>
-  <p>{{ cartItem.name }}</p>
-  <img [src]="cartItem.imageUrl" alt="Movie Poster" />
-  <h3>{{ cartItem.price }} Kr</h3>
-  <div>
-    <button>Minus</button>
-    <input type="text" />
-    <button>Plus</button>
+<div class="cartItem-container">
+  <img class="poster" [src]="cartItem.imageUrl" alt="Movie Poster" />
+  <div class="cartItemInfo-container">
+    <div class="removeButton-container">
+      <button class="removeButton" (click)="handelRemoveItem()">X</button>
+    </div>
+    <div class="cartItemInfo">
+      <h3>{{ cartItem.name }}</h3>
+      <div class="regulateAmount-container">
+        <button type="button" disabled="">Minus</button>
+        <p>quantity</p>
+        <button>Plus</button>
+      </div>
+      <h3>{{ cartItem.price }} Kr</h3>
+    </div>
   </div>
 </div>

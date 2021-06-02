@@ -1,0 +1,33 @@
+.movie-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .movieConatiner-content {
+    display: flex;
+    width: 70%;
+    .poster {
+      max-width: 40%;
+    }
+    .movieInfo-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .movieInfo {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        .addTocartButton {
+          width: 15%;
+          background-color: lightgreen;
+        }
+      }
+      .backToHome-container {
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+}

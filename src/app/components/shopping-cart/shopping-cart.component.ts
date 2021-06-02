@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from 'src/app/model/Movie';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -11,15 +12,18 @@ export class ShoppingCartComponent implements OnInit {
   cartItems: Movie[] = [];
   totalAmount: number;
 
-  constructor(private totalCartItems: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     // här tar jag emot listan på alla valda film object i form av en lista. Som jag sedan ger dess värde till min tomma lista här ovan movies
-    this.totalCartItems.carts$.subscribe((data) => {
+    this.cartService.carts$.subscribe((data) => {
       this.cartItems = data;
     });
-    this.totalCartItems.getCartItems();
-    // this.totalCartItems.getTotalAmount();
-    this.totalAmount = this.totalCartItems.getTotalAmount();
+    this.cartService.getCartItems();
+    // this.cartService.getTotalAmount();
+    this.totalAmount = this.cartService.getTotalAmount();
+  }
+  redirectToCheckout(): void {
+    this.router.navigate(['checkout']);
   }
 }

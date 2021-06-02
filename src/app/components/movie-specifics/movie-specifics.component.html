@@ -1,1 +1,26 @@
-<p>movie-specifics works!</p>
+<!-- <p>movie-specifics works!</p> -->
+<div class="movie-container">
+  <div class="movieConatiner-content">
+    <img class="poster" [src]="movieItem.imageUrl" [alt]="movieItem.name" />
+
+    <div class="movieInfo-container">
+      <div class="movieInfo">
+        <h3>
+          {{ movieItem.name }}
+        </h3>
+
+        <p>
+          {{ movieItem.description }}
+        </p>
+        <p>Release Date : {{ movieItem.year }}</p>
+        <!-- <p>{{ movie.price }} kr</p> -->
+        <button class="addTocartButton" (click)="handleAddToCart()">
+          Add to cart
+        </button>
+      </div>
+      <div class="backToHome-container">
+        <button (click)="handleBackToHome()">Back to Home</button>
+      </div>
+    </div>
+  </div>
+</div>

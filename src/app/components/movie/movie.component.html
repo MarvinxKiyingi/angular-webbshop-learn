@@ -2,6 +2,14 @@
   <p>
     {{ movieItem.name }}
   </p>
-  <img class="poster" [src]="movieItem.imageUrl" alt="Movie img" />
-  <button (click)="handleClick()">Add to cart</button>
+  <img
+    (click)="showSpecifics()"
+    class="poster"
+    [src]="movieItem.imageUrl"
+    alt="Movie img"
+  />
+  <p>
+    {{ movieItem.year }}
+  </p>
+  <button (click)="handleAddToCart()">Add to cart</button>
 </div>

@@ -1,8 +1,33 @@
-.shopping-cart {
+.cartItem-container {
   display: flex;
-  flex-direction: column;
-  width: 20%;
   .poster {
-    max-width: 100%;
+    max-width: 20%;
+  }
+  .cartItemInfo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .removeButton-container {
+      display: flex;
+      justify-content: end;
+      .removeButton {
+        width: 10%;
+        font-weight: bold;
+        font-size: 1.3rem;
+        padding: 0;
+        background-color: unset;
+        cursor: pointer;
+        border: 0;
+      }
+    }
+    .cartItemInfo {
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .regulateAmount-container {
+        display: flex;
+      }
+    }
   }
 }

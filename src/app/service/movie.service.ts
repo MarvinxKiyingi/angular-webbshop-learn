@@ -29,4 +29,8 @@ export class MovieService {
       this.movies.next(JSON.parse(localStorage.getItem('Movies')));
     }
   }
+  getMoviesId(movieID: number): Movie {
+    let movies: Movie[] = JSON.parse(localStorage.getItem('Movies'));
+    return movies.filter((mId) => mId.id == movieID)[0];
+  }
 }

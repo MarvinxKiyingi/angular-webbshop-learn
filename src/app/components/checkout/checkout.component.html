@@ -1,0 +1,17 @@
+<div>
+  <h1>Almost there</h1>
+  <form [formGroup]="userFrom" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="First Name" formControlName="firstName" />
+    <select name="dropdown" formControlName="paymentMethod">
+      <option value="Visa">Visa</option>
+      <option value="MasterCard">MasterCard</option>
+      <option value="American express"></option>
+    </select>
+    <button type="submit" [disabled]="userFrom.invalid">Create order</button>
+  </form>
+</div>
+<div>
+  <p>
+    {{ userFrom.value | json }}
+  </p>
+</div>
