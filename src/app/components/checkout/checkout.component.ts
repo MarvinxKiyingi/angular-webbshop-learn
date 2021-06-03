@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/model/Movie';
+import { Order } from 'src/app/model/order';
 import { CartService } from 'src/app/service/cart.service';
 import { OrderService } from 'src/app/service/order.service';
 
@@ -39,11 +40,16 @@ export class CheckoutComponent implements OnInit {
   onSubmit(): void {
     let firstName = this.userFrom.value.firstName;
     let paymentMethod = this.userFrom.value.paymentMethod;
-    this.orderService.createOrder(firstName, paymentMethod);
-    this.redirectConfirmation();
+    this.orderService
+      .createOrder(firstName, paymentMethod)
+      .subscribe((data: Order) => {
+        this.orderService.clearCart();
+        this.router.navigate(['confirmation']);
+      });
+    // this.redirectConfirmation();
   }
 
-  redirectConfirmation(): void {
-    this.router.navigate(['confirmation']);
-  }
+  // redirectConfirmation(): void {
+  //   this.router.navigate(['confirmation']);
+  // }
 }

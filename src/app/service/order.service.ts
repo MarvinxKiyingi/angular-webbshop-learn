@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Movie } from '../model/Movie';
 import { Order, orderItem } from '../model/order';
 
@@ -13,7 +13,7 @@ export class OrderService {
   cartItems: Movie[] = [];
   constructor(private http: HttpClient) {}
 
-  createOrder(firstName: string, paymentMethod: string): void {
+  createOrder(firstName: string, paymentMethod: string): Observable<Order> {
     //Hämta våra beställning från local storage
     this.cartItems = JSON.parse(sessionStorage.getItem('Cart'));
     let date = new Date();
@@ -35,18 +35,17 @@ export class OrderService {
     ]);
     console.log(newOrder);
     // this.sendOrder(newOrder);
-    this.clearCart();
+    // this.clearCart();
+
+    //skickar iväg ordern
+    return this.sendOrder(newOrder);
   }
 
   sendOrder(newOrder: Order) {
-    return this.http
-      .post<Order>(
-        'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
-        newOrder
-      )
-      .subscribe((data: Order) => {
-        console.log(data);
-      });
+    return this.http.post<Order>(
+      'https://medieinstitutet-wie-products.azurewebsites.net/api/orders',
+      newOrder
+    );
   }
 
   clearCart(): void {
