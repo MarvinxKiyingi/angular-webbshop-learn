@@ -18,6 +18,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PrintAdminComponent } from './components/print-admin/print-admin.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PrintAdminComponent } from './components/print-admin/print-admin.compon
     CheckoutComponent,
     AdminComponent,
     PrintAdminComponent,
+    OrderConfirmationComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private cartService: CartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,5 +40,10 @@ export class CheckoutComponent implements OnInit {
     let firstName = this.userFrom.value.firstName;
     let paymentMethod = this.userFrom.value.paymentMethod;
     this.orderService.createOrder(firstName, paymentMethod);
+    this.redirectConfirmation();
+  }
+
+  redirectConfirmation(): void {
+    this.router.navigate(['confirmation']);
   }
 }

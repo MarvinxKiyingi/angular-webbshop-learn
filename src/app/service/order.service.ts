@@ -34,8 +34,10 @@ export class OrderService {
       ...orderRows,
     ]);
     console.log(newOrder);
-    this.sendOrder(newOrder);
+    // this.sendOrder(newOrder);
+    this.clearCart();
   }
+
   sendOrder(newOrder: Order) {
     return this.http
       .post<Order>(
@@ -45,5 +47,11 @@ export class OrderService {
       .subscribe((data: Order) => {
         console.log(data);
       });
+  }
+
+  clearCart(): void {
+    console.log('cleared sessionstorage');
+    sessionStorage.removeItem('Cart');
+    // localStorage.removeItem('Orders');
   }
 }
